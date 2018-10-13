@@ -7,12 +7,12 @@ dependencies = ['click']
 
 setup(
     name='mareposa',
-    version='0.2.0',
+    version='1.0.0',
     url='https://github.com/RichStone/mareposa',
     license='BSD',
     author='Richard Rich Steinmetz',
     author_email='richard.had@hotmail.de',
-    description='la maREPOsa allows you to go through all the initiation process of new git/GitHub projects with just a single terminal command.',
+    description='la maREPOsa automates creation of your remote GitHub & local git repositories, gitignore and README.md in one single line of code.',
     long_description=__doc__,
     packages=find_packages(exclude=['tests']),
     include_package_data=True,
