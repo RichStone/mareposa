@@ -19,9 +19,15 @@ def create(locally):
     if locally is False:
         click.echo('Please decide if you want to create a local repository and commit your files.')
     else:
-        bash_command = 'git init && git add . && git commit -m"start project"'
-        process = subprocess.Popen(bash_command.split(), stdout=subprocess.PIPE)
+        # bash_execute('git init', 'git add .', 'git commit -m\"start project\"')
+        bash_execute(['git', 'init'], ['git', 'add', '.'], ["git", "commit", "-m'start project'"])
+
+
+def bash_execute(*commands):
+    for command in commands:
+        process = subprocess.Popen(command, stdout=subprocess.PIPE)
         output, error = process.communicate()
+        process.terminate()
 
 
 if __name__ == '__main__':

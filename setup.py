@@ -21,7 +21,7 @@ setup(
     install_requires=dependencies,
     entry_points={
         'console_scripts': [
-            'mareposa = mareposa.cli:main',
+            'mareposa = mareposa.cli:mareposa',
         ],
     },
     classifiers=[
