@@ -20,7 +20,7 @@ def create(locally):
         click.echo('Please decide if you want to create a local repository and commit your files.')
     else:
         # bash_execute('git init', 'git add .', 'git commit -m\"start project\"')
-        bash_execute(['git', 'init'], ['git', 'add', '.'], ["git", "commit", "-m'start project'"])
+        bash_execute(['git', 'init'], ['git', 'add', '.'], ['git', 'commit', '-m"start project"'])
 
 
 def bash_execute(*commands):
