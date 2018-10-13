@@ -22,10 +22,9 @@ def mareposa():
 @click.option('--repo-name', help='Your new repository name.')
 @click.option('-i', '--ignore', help='Create a .gitignore file with files and names to ignore. '
                                      'Provide the technologies to ignore separated by come, e.g. eclipse,java etc. '
-                                     'For full list of possible technologies refer to --ignore-list. '
+                                     'For full list of possible technologies refer to `mareposa info --ignore-list`. '
                                      'Please check the .gitignore file thoroughly to know exactly what will be ignored.')
-@click.option('--show-ignore-list', help='Show all possible operating systems, programming languages and IDE input types to ignore automatically (https://www.gitignore.io/api)')
-def create(locally, github_repo, gh_user, repo_name, ignore, show_ignore_list):
+def create(locally, github_repo, gh_user, repo_name, ignore):
     if locally is False and github_repo is False:
         click.echo('Create new repository locally, remotely or both? For more information type `mareposa create --help`')
     else:
@@ -45,10 +44,18 @@ def create(locally, github_repo, gh_user, repo_name, ignore, show_ignore_list):
             bash_append_to_gitignore(technology)
 
 
+@mareposa.command()
+@click.option('--show-ignore-list', is_flag=True, help='Show all possible operating systems, programming languages and IDE input types that can be ignored in .gitignore')
+def info(show_ignore_list):
+    if show_ignore_list:
+        bash_execute(['curl', '-s', 'https://www.gitignore.io/api/list'])
+
+
 def bash_execute(*commands):
     for command in commands:
         process = subprocess.Popen(command, stdout=subprocess.PIPE)
         output, error = process.communicate()
+        click.echo(output)
 
 
 def bash_append_to_gitignore(technology):
