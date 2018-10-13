@@ -1,10 +1,28 @@
+import subprocess
 import click
 
 
-@click.command()
-@click.option('--as-cowboy', '-c', is_flag=True, help='Greet as a cowboy.')
-@click.argument('name', default='world', required=False)
-def main(name, as_cowboy):
+@click.group()
+def main():
     """Fla maREPOsa allows you to go through all the initiation process of new git/GitHub projects with just a single terminal command."""
-    greet = 'Howdy' if as_cowboy else 'Hello'
-    click.echo('{0}, {1}.'.format(greet, name))
+    pass
+
+
+@main.group()
+def mareposa():
+    pass
+
+
+@mareposa.command()
+@click.option('-l', '--locally', is_flag=True, help='Create a git repository locally and commit all existing files.')
+def create(locally):
+    if locally is False:
+        click.echo('Please decide if you want to create a local repository and commit your files.')
+    else:
+        bash_command = 'git init && git add . && git commit -m"start project"'
+        process = subprocess.Popen(bash_command.split(), stdout=subprocess.PIPE)
+        output, error = process.communicate()
+
+
+if __name__ == '__main__':
+    main()

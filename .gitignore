@@ -1,3 +1,6 @@
+# my ignores
+.idea/
+
 # recommended by https://nvie.com/posts/writing-a-cli-in-python-in-under-60-seconds/
 *.pyc
 
