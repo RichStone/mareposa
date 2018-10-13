@@ -45,7 +45,15 @@ def create(locally, github_repo, gh_user, repo_name, ignore, readme):
                            '--gh-user\n '
                            '--repo-name')
         if locally:
-            bash_execute(['git', 'init'], ['git', 'add', '.'], ['git', 'commit', '-m"start project"'])
+            if gh_user and repo_name:
+                bash_execute(['git', 'init'],
+                             ['git', 'add', '.'],
+                             ['git', 'commit', '-m"start project"']
+                             )
+                bash_execute_shell('git remote add origin https://github.com/' + gh_user + '/' + repo_name)
+                bash_execute_shell('git push -u origin master')
+            else:
+                click.echo('Please provide --gh-user and --repo-name because we will push it up directly.')
 
 
 @mareposa.command()
@@ -58,8 +66,10 @@ def info(show_ignore_list):
 def bash_execute(*commands):
     for command in commands:
         process = subprocess.Popen(command, stdout=subprocess.PIPE)
+        process.wait()
         output, error = process.communicate()
         click.echo(output)
+        process.terminate()
 
 
 def bash_execute_curl(url, options='', append_command=''):
@@ -68,8 +78,13 @@ def bash_execute_curl(url, options='', append_command=''):
     # check if shell=True is not to be used everywhere
     :param technology: technologies to ignore separated by come, e.g. eclipse,java etc. For full list of possible technologies refer to --ignore-list. '
     """
-    # TODO remove: https://www.gitignore.io/api/' + technology + ' >> .gitignore'
     process = subprocess.Popen('curl ' + options + ' ' + url + ' ' + append_command, shell=True)
+    process.wait()
+    process.terminate()
+
+
+def bash_execute_shell(command):
+    process = subprocess.Popen(command, shell=True)
     process.wait()
     process.terminate()
 
