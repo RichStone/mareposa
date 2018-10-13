@@ -24,7 +24,15 @@ def mareposa():
                                      'Provide the technologies to ignore separated by come, e.g. eclipse,java etc. '
                                      'For full list of possible technologies refer to `mareposa info --ignore-list`. '
                                      'Please check the .gitignore file thoroughly to know exactly what will be ignored.')
-def create(locally, github_repo, gh_user, repo_name, ignore):
+@click.option('-r', '--readme', type=click.Choice(['blank', 'light', 'detailed']), help='Create a README.md')
+def create(locally, github_repo, gh_user, repo_name, ignore, readme):
+    if ignore:
+        ignorables = ignore.split(',')
+        for technology in ignorables:
+            url = 'https://www.gitignore.io/api/' + technology
+            bash_execute_curl(url, options='-s', append_command=' >> .gitignore')
+    if readme:
+        bash_create_readme(readme)
     if locally is False and github_repo is False:
         click.echo('Create new repository locally, remotely or both? For more information type `mareposa create --help`')
     else:
@@ -38,10 +46,6 @@ def create(locally, github_repo, gh_user, repo_name, ignore):
                            '--repo-name')
         if locally:
             bash_execute(['git', 'init'], ['git', 'add', '.'], ['git', 'commit', '-m"start project"'])
-    if ignore:
-        ignorables = ignore.split(',')
-        for technology in ignorables:
-            bash_append_to_gitignore(technology)
 
 
 @mareposa.command()
@@ -58,15 +62,25 @@ def bash_execute(*commands):
         click.echo(output)
 
 
-def bash_append_to_gitignore(technology):
+def bash_execute_curl(url, options='', append_command=''):
     """
     # Popen together with curl cannot deal with chaining `>>` to curl commands, that's why shell=True is used for subprocess.Popen
     # check if shell=True is not to be used everywhere
     :param technology: technologies to ignore separated by come, e.g. eclipse,java etc. For full list of possible technologies refer to --ignore-list. '
     """
-    process = subprocess.Popen('curl https://www.gitignore.io/api/' + technology + ' >> .gitignore', shell=True)
+    # TODO remove: https://www.gitignore.io/api/' + technology + ' >> .gitignore'
+    process = subprocess.Popen('curl ' + options + ' ' + url + ' ' + append_command, shell=True)
     process.wait()
     process.terminate()
+
+
+def bash_create_readme(readme):
+    if readme == 'light':
+        bash_execute_curl('https://raw.githubusercontent.com/RichStone/readme-template/master/types/light-README.md', '-o README.md')
+    elif readme == 'detailed':
+        bash_execute_curl('https://raw.githubusercontent.com/RichStone/readme-template/master/README.md', '-o "README.md"')
+    elif readme == 'blank':
+        bash_execute(['touch', 'README.md'])
 
 
 if __name__ == '__main__':
