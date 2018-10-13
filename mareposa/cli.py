@@ -20,12 +20,15 @@ def mareposa():
                    'To create a new remote GitHub repo, please provide your registered --gh-user (GitHub username) and your new --repo-name')
 @click.option('--gh-user', default=None, help='User name of the owner of the new ')
 @click.option('--repo-name', help='Your new repository name.')
-def create(locally, github_repo, gh_user, repo_name):
+@click.option('-i', '--ignore', help='Create a .gitignore file with files and names to ignore. '
+                                     'Provide the technologies to ignore separated by come, e.g. eclipse,java etc. '
+                                     'For full list of possible technologies refer to --ignore-list. '
+                                     'Please check the .gitignore file thoroughly to know exactly what will be ignored.')
+@click.option('--show-ignore-list', help='Show all possible operating systems, programming languages and IDE input types to ignore automatically (https://www.gitignore.io/api)')
+def create(locally, github_repo, gh_user, repo_name, ignore, show_ignore_list):
     if locally is False and github_repo is False:
         click.echo('Create new repository locally, remotely or both? For more information type `mareposa create --help`')
     else:
-        # if locally:
-        #     bash_execute(['git', 'init'], ['git', 'add', '.'], ['git', 'commit', '-m"start project"'])
         if github_repo:
             if gh_user and repo_name:
                 bash_execute(['curl', '-u', gh_user, 'https://api.github.com/user/repos', '-d', '{"name":"' + repo_name + '"}'])
@@ -34,14 +37,29 @@ def create(locally, github_repo, gh_user, repo_name):
                            'Please provide all of these options when you plan to create a new remote GitHub repository:\n '
                            '--gh-user\n '
                            '--repo-name')
+        if locally:
+            bash_execute(['git', 'init'], ['git', 'add', '.'], ['git', 'commit', '-m"start project"'])
+    if ignore:
+        ignorables = ignore.split(',')
+        for technology in ignorables:
+            bash_append_to_gitignore(technology)
 
 
 def bash_execute(*commands):
     for command in commands:
         process = subprocess.Popen(command, stdout=subprocess.PIPE)
         output, error = process.communicate()
-        click.echo(output)
-        process.terminate()
+
+
+def bash_append_to_gitignore(technology):
+    """
+    # Popen together with curl cannot deal with chaining `>>` to curl commands, that's why shell=True is used for subprocess.Popen
+    # check if shell=True is not to be used everywhere
+    :param technology: technologies to ignore separated by come, e.g. eclipse,java etc. For full list of possible technologies refer to --ignore-list. '
+    """
+    process = subprocess.Popen('curl https://www.gitignore.io/api/' + technology + ' >> .gitignore', shell=True)
+    process.wait()
+    process.terminate()
 
 
 if __name__ == '__main__':
