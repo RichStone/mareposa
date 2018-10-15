@@ -14,10 +14,10 @@ def mareposa():
 
 
 @mareposa.command()
-@click.option('-l', '--locally', is_flag=True, help='Initiate a git repository locally and commit all existing files of the current directory.')
 @click.option('-g', '--github-repo', is_flag=True,
-              help='Create a remote repository on GitHub. '
-                   'To create a new remote GitHub repo, please provide your registered --gh-user (GitHub username) and your new --repo-name')
+              help='Create a remote repository on GitHub.\n '
+                   'To create a new remote GitHub repo, please provide your registered\n --gh-user (GitHub username)\n and\n your new --repo-name')
+@click.option('-l', '--locally', is_flag=True, help='Initiate a git repository locally, commit, and push all existing files of the current directory with the commit message "start project".')
 @click.option('--gh-user', default=None, help='User name of the owner of the new ')
 @click.option('--repo-name', help='Your new repository name.')
 @click.option('-i', '--ignore', help='Create a .gitignore file with files and names to ignore. '
