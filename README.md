@@ -1,26 +1,47 @@
 # Product Name
-> Short blurb about what your product does.
+> la maREPOsa automates creation of your remote GitHub & local git repositories, gitignore and README.md in one single line of code.
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
+[![PyPI version](https://badge.fury.io/py/mareposa.svg)](https://badge.fury.io/py/mareposa)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<a href="https://flattr.com/submit/auto?user_id=datagoodie&url=https%3A%2F%2Fgithub.com%2FRichStone%2Fmareposa" target="_blank"><img src="https://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
 
-One to two paragraph statement about your product and what it does.
+Almost every developer, who works with git, executes a certain algorithm, probably hundreds of times throughout his career, to create projects. The goal of maREPOsa is to replace this algorithm with one terminal command.
+
+#### The old algorithm
+```bash
+- go to GitHub
+- create project
+
+# assuming that you already have files in your project's directory
+- git init 
+- git add .
+- git commit -m"start project"
+- git remote add origin https://github.com/USER/REPO
+```
+
+You might also want to generate a .gitignore file by going to [gitignore.io](https://gitignore.io) and look for a README.md template for your project. You see the tremendous work and web surfing you have to invest for setting up a project.
+
+#### The new algorithm
+```bash
+# do this once
+pip install mareposa
+
+# do for example this the rest of your life
+mareposa create -g -l --gh-user USER_NAME --repo-name REPO_NAME --ignore python,pycharm,linux --readme detailed
+```
+
+But you can also use maREPOsa e.g. to only create a configured .gitignore file or a README.md template.
 
 ![](header.png)
 
 ## Installation
 
-OS X & Linux:
+OS X & Linux & Windows:
 
-```sh
-npm install my-crazy-module --save
-```
+The installation should be the same for everyone but by now it was only tested on Windows:
 
-Windows:
-
-```sh
-edit autoexec.bat
+```bash
+pip install mareposa
 ```
 
 ## Usage example
