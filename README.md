@@ -133,7 +133,10 @@ pipsi install --editable .
 pipsi uninstall maREPOsa
 pipsi install --editable .
 ```
+
 You may also be able to do all of this by just using `pip` but this is how my workflow was and I found it quite handy.
+
+(tox is set up but the tests aren't yet)
 
 ‼️
 > Don't run `mareposa create --locally` by mistake in some existing repo as it will add-commit-push automatically.  
