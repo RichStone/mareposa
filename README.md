@@ -1,21 +1,101 @@
-# la maREPOsa
+# Product Name
+> Short blurb about what your product does.
 
-Fla maREPOsa allows you to go through all the initiation process of new git/GitHub projects with just a single terminal command.
+[![NPM Version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![Downloads Stats][npm-downloads]][npm-url]
 
+One to two paragraph statement about your product and what it does.
 
-# Installation
+![](header.png)
 
-If you don't use `pipsi`, you're missing out.
-Here are [installation instructions](https://github.com/mitsuhiko/pipsi#readme).
+## Installation
 
-Simply run:
+OS X & Linux:
 
-    $ pipsi install .
+```sh
+npm install my-crazy-module --save
+```
 
+Windows:
 
-# Usage
+```sh
+edit autoexec.bat
+```
 
-To use it:
+## Usage example
 
-    $ mareposa --help
+A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
 
+_For more examples and usage, please refer to the [Wiki][wiki]._
+
+## Development setup
+
+Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
+
+```sh
+make install
+npm test
+```
+
+## Release History
+
+* 0.2.1
+    * CHANGE: Update docs (module code remains unchanged)
+* 0.2.0
+    * CHANGE: Remove `setDefaultXYZ()`
+    * ADD: Add `init()`
+* 0.1.1
+    * FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
+* 0.1.0
+    * The first proper release
+    * CHANGE: Rename `foo()` to `bar()`
+* 0.0.1
+    * Work in progress
+
+## Meta
+
+Your Name – [@YourTwitter](https://twitter.com/stonerichio) – YourEmail@example.com
+
+Distributed under the XYZ license. See ``LICENSE`` for more information.
+
+[https://github.com/yourname/github-link](https://github.com/RichStone/)
+
+## Contributing
+
+1. Fork it (<https://github.com/yourname/yourproject/fork>)
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
+
+## Future Features Ideas
+- Feature One
+- Feature Two
+
+## Neccessary Refactorings
+- refactor this 
+- refactor that
+
+Use **Future Features** and **Neccessary Refactorings** rather sparingly and only as long as collaboration and project size are overseeable.
+
+## Code Metrics
+Let people know how you worked on this project.
+- How did you plan it?
+- How much time did it take?
+- What was easy, where did you struggle?
+e.g.: [this project](https://datagoodie.com/blog/introducing-data-collection-tool/)
+
+*this README.md template was originally created by [Dan Bader](https://twitter.com/dbader_org) and extend by [RichStone](https://github.com/RichStone/)*
+
+*An example project that uses this extensive template is my [data collection tool](https://github.com/RichStone/data-collection-download-tool)*
+
+> let me know if you need any translations of the template.
+
+<!-- Markdown link & img dfn's -->
+[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/datadog-metrics
+[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
+[wiki]: https://github.com/yourname/yourproject/wiki
