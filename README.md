@@ -175,4 +175,9 @@ Distributed under the XYZ license. See ``LICENSE`` for more information.
 - set message, if no gitignore technology available
 - Set your own default README.md
 
+### future refactorings
+- take out texts in a map file
+- have bash commands in own class
+- add offline support for README, LICENSE.txt and gitignore
+
 > let me know in the issues if you have new ideas or want some of the possible features interests you most at the moment.
