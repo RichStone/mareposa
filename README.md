@@ -5,6 +5,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <a href="https://flattr.com/submit/auto?user_id=datagoodie&url=https%3A%2F%2Fgithub.com%2FRichStone%2Fmareposa" target="_blank"><img src="https://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
 
+### Successfully tested on:
+
+![](https://img.shields.io/badge/ubuntu-16.04-brightgreen.svg)
+![](https://img.shields.io/badge/Mac%20OS%20X-10.13-brightgreen.svg)
+
 ![](header.jpg)
 
 Almost every developer, who works with git, executes a certain algorithm to create projects. 
@@ -35,13 +40,13 @@ pip install mareposa
 mareposa create -g -l --gh-user USER_NAME --repo-name REPO_NAME --ignore python,pycharm,linux --readme detailed
 ```
 
-But you can also use maREPOsa e.g. to only create a configured `.gitignore` file or a `README.md` template.
+You can also use maREPOsa e.g. to only create a configured `.gitignore` file or a `README.md` template.
 
 ## Installation
 
 OS X & Linux & Windows:
 
-The installation should be the same for everyone but by now it was only tested on OS X:
+The installation should be the same for everyone but by now it was only tested on Mac OS X and Ubuntu:
 
 ```bash
 pip install mareposa
@@ -49,13 +54,11 @@ pip install mareposa
 
 ## Usage
 
-To get an overview what mareposa can, start of with ...
+To get an overview what mareposa can, start with ...
 
 ```bash
 $ mareposa create --help
-```
-```
-areposa create --help
+
 Usage: mareposa create [OPTIONS]
 
 Options:
@@ -79,9 +82,9 @@ Options:
   --help                          Show this message and exit.
 ```
 
-Now you can for example do the complete initialization of your project in just one step:
+Now you can do the complete initialization of your project in just one step:
 ```bash
-$ mareposa create --github-repo --locally --gh-user USER_NAME --repo-name REPO_NAME --ignore python,pycharm,linux --readme detailed
+$ mareposa create --locally --github-repo --gh-user USER_NAME --repo-name REPO_NAME --ignore python,pycharm,linux --readme detailed
 ```
 
 You can also just generate a `.gitignore` file if you already have a project:
@@ -90,7 +93,7 @@ You can also just generate a `.gitignore` file if you already have a project:
 $ mareposa create --ignore python,pycharm,linux
 ```
 
-Create a verbose README template, like the one you are reading right now:
+Or create a verbose README template, like the one you are reading right now:
 ```
 $ mareposa create --readme detailed
 ```
@@ -100,20 +103,18 @@ Or just create a blank one to fill it later
 $ mareposa create --readme blank
 ```
 
-If you have already created a remote repo, you can also just add-commit-push:
+If you have already created a remote repo, you can also just perform add-commit-push:
 ```
 $ mareposa create --locally --gh-user GUTHUB_USER_NAME --repo-name YOUR_REPO
 ```
 
-**Please be aware that maREPOsa is in its early beta phase and can generate unexpected behaviour. 
-The functionality has still to be tested on Windows and Linux.**
-
-‼️
-> Don't run `mareposa create --locally` by mistake in some existing repo as it will add-commit-push automatically.  
+**Please be aware that maREPOsa is in its early beta phase and can generate unexpected behaviour.**
 
 ## Development setup if you like to contribute
 
-Consider installing pipsi to install maREPOsa. It is another kind of `pip`. 
+The quickest way to get started is to `git clone` the repository and after you have made some changes to run the script with `python cli.py mareposa create --locally` from the mareposa directory.
+
+Also consider installing pipsi to install maREPOsa. It is another kind of `pip`. 
 It will automatically install maREPOsa and its isolated venv dependencies in your /Users/USER_NAME/.local/ directory.
 
 Here are the [installation instructions for pipsi](https://github.com/mitsuhiko/pipsi#readme).
@@ -136,13 +137,12 @@ pipsi install --editable .
 
 You may also be able to do all of this by just using `pip` but this is how my workflow was and I found it quite handy.
 
-(tox is set up but the tests aren't yet)
-
-‼️
-> Don't run `mareposa create --locally` by mistake in some existing repo as it will add-commit-push automatically.  
+(tox is also set up but the tests aren't yet)
 
 ## Release History
 
+* 1.0.2
+    * FIX: dangerous --locally behaviour
 * 1.0.0
     * ADD: Main functionallity
 * 0.2.0
@@ -150,11 +150,12 @@ You may also be able to do all of this by just using `pip` but this is how my wo
 
 ## Meta
 
-Your Name – [@YourTwitter](https://twitter.com/stonerichio) – YourEmail@example.com
+Richard Steinmetz – [Connect on LinkedIn](https://www.linkedin.com/in/richard-steinmetz/){:target="_blank"}
 
-Distributed under the XYZ license. See ``LICENSE`` for more information.
+Distributed under the MIT license. See ``LICENSE.txt`` for more information.
 
-[https://github.com/yourname/github-link](https://github.com/RichStone/)
+[My GitHub account](https://github.com/RichStone/){:target="_blank"}
+[Twitter](https://twitter.com/stonerichio){:target="_blank"}
 
 ## Future Features and Enhancements Ideas
 
