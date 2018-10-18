@@ -1,3 +1,4 @@
+import os
 import subprocess
 import click
 
@@ -45,15 +46,18 @@ def create(locally, github_repo, gh_user, repo_name, ignore, readme):
                            '--gh-user\n '
                            '--repo-name')
         if locally:
-            if gh_user and repo_name:
-                bash_execute(['git', 'init'],
-                             ['git', 'add', '.'],
-                             ['git', 'commit', '-m"start project"']
-                             )
-                bash_execute_shell('git remote add origin https://github.com/' + gh_user + '/' + repo_name)
-                bash_execute_shell('git push -u origin master')
+            if os.path.exists('.git'):
+                click.echo('--locally will not be executed because a .git folder already exists in this directory.')
             else:
-                click.echo('Please provide --gh-user and --repo-name because we will push it up directly.')
+                if gh_user and repo_name:
+                    bash_execute(['git', 'init'],
+                                 ['git', 'add', '.'],
+                                 ['git', 'commit', '-m"start project"']
+                                 )
+                    bash_execute_shell('git remote add origin https://github.com/' + gh_user + '/' + repo_name)
+                    bash_execute_shell('git push -u origin master')
+                else:
+                    click.echo('Please provide --gh-user and --repo-name because we will push it up directly.')
 
 
 @mareposa.command()
