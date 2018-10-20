@@ -1,9 +1,9 @@
 # Product Name
 > la maREPOsa automates creation of your remote GitHub & local git repositories, gitignore and README.md in one single line of code.
 
-[![PyPI version](https://badge.fury.io/py/mareposa.svg)](https://badge.fury.io/py/mareposa)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-<a href="https://flattr.com/submit/auto?user_id=datagoodie&url=https%3A%2F%2Fgithub.com%2FRichStone%2Fmareposa" target="_blank"><img src="https://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
+[![PyPI version](https://badge.fury.io/py/mareposa.svg)](https://badge.fury.io/py/mareposa){:target="_blank"}
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT){:target="_blank"}
+<a href="https://flattr.com/submit/auto?user_id=datagoodie&url=https%3A%2F%2Fgithub.com%2FRichStone%2Fmareposa" target="_blank" ><img src="https://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
 
 ### Successfully tested on:
 
@@ -117,7 +117,7 @@ The quickest way to get started is to `git clone` the repository and after you h
 Also consider installing pipsi to install maREPOsa. It is another kind of `pip`. 
 It will automatically install maREPOsa and its isolated venv dependencies in your /Users/USER_NAME/.local/ directory.
 
-Here are the [installation instructions for pipsi](https://github.com/mitsuhiko/pipsi#readme).
+Here are the [installation instructions for pipsi](https://github.com/mitsuhiko/pipsi#readme){:target="_blank"}.
 
 If you installed maREPOsa with `pip` already, you may want to uninstall it first.
 
