@@ -7,7 +7,7 @@ dependencies = ['click']
 
 setup(
     name='mareposa',
-    version='1.0.1',
+    version='1.0.2',
     url='https://github.com/RichStone/mareposa',
     license='MIT',
     author='Richard Rich Steinmetz',
