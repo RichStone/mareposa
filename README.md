@@ -9,6 +9,7 @@
 
 ![](https://img.shields.io/badge/ubuntu-16.04-brightgreen.svg)
 ![](https://img.shields.io/badge/Mac%20OS%20X-10.13-brightgreen.svg)
+![](https://img.shields.io/badge/Windows-8-brightgreen.svg)
 
 ![](header.jpg)
 
