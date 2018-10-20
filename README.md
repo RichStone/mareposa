@@ -9,12 +9,13 @@
 
 ![](https://img.shields.io/badge/ubuntu-16.04-brightgreen.svg)
 ![](https://img.shields.io/badge/Mac%20OS%20X-10.13-brightgreen.svg)
+![](https://img.shields.io/badge/Windows-8-brightgreen.svg)
 
 ![](header.jpg)
 
-Almost every developer, who works with git, executes a certain algorithm to create projects. 
-Probably hundreds of times throughout his career. 
-The goal of maREPOsa is to replace this algorithm with one terminal command.
+Almost every developer, who works with git, executes a certain algorithm to create projects.
+Probably hundreds of times throughout their career.
+The goal of maREPOsa is to replace this algorithm with one single terminal command.
 
 #### The old algorithm
 ```bash
@@ -26,9 +27,12 @@ The goal of maREPOsa is to replace this algorithm with one terminal command.
 - git add .
 - git commit -m"start project"
 - git remote add origin https://github.com/USER/REPO
+
+# You might also want to generate a `.gitignore` file by going to [www.gitignore.io](https://www.gitignore.io)
+
+# You might want to look for a `README.md` template for your project. 
 ```
 
-You might also want to generate a `.gitignore` file by going to [www.gitignore.io](https://www.gitignore.io) and look for a `README.md` template for your project. 
 You see the tremendous work and web surfing you have to invest for setting up a project.
 
 #### The new algorithm
@@ -68,7 +72,7 @@ Options:
                                   create a new remote GitHub repo, please
                                   provide your registered --gh-user (GitHub
                                   username) and your new --repo-name
-  --gh-user TEXT                  User name of the owner of the new
+  --gh-user TEXT                  User name of the owner of the new repository.
   --repo-name TEXT                Your new repository name.
   -i, --ignore TEXT               Create a .gitignore file with files and
                                   names to ignore. Provide the technologies to
@@ -87,7 +91,7 @@ Now you can do the complete initialization of your project in just one step:
 $ mareposa create --locally --github-repo --gh-user USER_NAME --repo-name REPO_NAME --ignore python,pycharm,linux --readme detailed
 ```
 
-You can also just generate a `.gitignore` file if you already have a project:
+You can also only generate a `.gitignore` file if you already have a project:
 ```
 # create a .gitignore file with default ignorables from https://www.gitignore.io for the technologies you plan to work with
 $ mareposa create --ignore python,pycharm,linux
@@ -103,7 +107,7 @@ Or just create a blank one to fill it later
 $ mareposa create --readme blank
 ```
 
-If you have already created a remote repo, you can also just perform add-commit-push:
+If you have already created a remote repo and you have your first commit ready to push, you can also just perform add-commit-push like this:
 ```
 $ mareposa create --locally --gh-user GUTHUB_USER_NAME --repo-name YOUR_REPO
 ```
@@ -181,4 +185,4 @@ Distributed under the MIT license. See ``LICENSE.txt`` for more information.
 - have bash commands in own class
 - add offline support for README, LICENSE.txt and gitignore
 
-> let me know in the issues if you have new ideas or want some of the possible features interests you most at the moment.
+> let me know in the issues if you have new ideas or if you found bugs to be fixed.
