@@ -1,8 +1,8 @@
 # Product Name
 > la maREPOsa automates creation of your remote GitHub & local git repositories, gitignore and README.md in one single line of code.
 
-[![PyPI version](https://badge.fury.io/py/mareposa.svg)](https://badge.fury.io/py/mareposa){:target="_blank"}
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT){:target="_blank"}
+[![PyPI version](https://badge.fury.io/py/mareposa.svg)](https://badge.fury.io/py/mareposa)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <a href="https://flattr.com/submit/auto?user_id=datagoodie&url=https%3A%2F%2Fgithub.com%2FRichStone%2Fmareposa" target="_blank" ><img src="https://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
 
 ### Successfully tested on:
@@ -41,7 +41,7 @@ You see the tremendous work and web surfing you have to invest for setting up a 
 pip install mareposa
 
 # do for example this the rest of your life
-mareposa create -g -l --gh-user USER_NAME --repo-name REPO_NAME --ignore python,pycharm,linux --readme detailed
+mareposa create -g -l --gh-user USER_NAME --repo-name REPO_NAME --ignore "python,pycharm,linux" --readme detailed
 ```
 
 You can also use maREPOsa e.g. to only create a configured `.gitignore` file or a `README.md` template.
@@ -88,13 +88,13 @@ Options:
 
 Now you can do the complete initialization of your project in just one step:
 ```bash
-$ mareposa create --locally --github-repo --gh-user USER_NAME --repo-name REPO_NAME --ignore python,pycharm,linux --readme detailed
+$ mareposa create --locally --github-repo --gh-user USER_NAME --repo-name REPO_NAME --ignore "python,pycharm,linux" --readme detailed
 ```
 
 You can also only generate a `.gitignore` file if you already have a project:
 ```
 # create a .gitignore file with default ignorables from https://www.gitignore.io for the technologies you plan to work with
-$ mareposa create --ignore python,pycharm,linux
+$ mareposa create --ignore "python,pycharm,linux"
 ```
 
 Or create a verbose README template, like the one you are reading right now:
@@ -121,7 +121,7 @@ The quickest way to get started is to `git clone` the repository and after you h
 Also consider installing pipsi to install maREPOsa. It is another kind of `pip`. 
 It will automatically install maREPOsa and its isolated venv dependencies in your /Users/USER_NAME/.local/ directory.
 
-Here are the [installation instructions for pipsi](https://github.com/mitsuhiko/pipsi#readme){:target="_blank"}.
+Here are the [installation instructions for pipsi](https://github.com/mitsuhiko/pipsi#readme).
 
 If you installed maREPOsa with `pip` already, you may want to uninstall it first.
 
@@ -154,12 +154,17 @@ You may also be able to do all of this by just using `pip` but this is how my wo
 
 ## Meta
 
-Richard Steinmetz – [Connect on LinkedIn](https://www.linkedin.com/in/richard-steinmetz/){:target="_blank"}
+Richard Steinmetz – [Connect on LinkedIn](https://www.linkedin.com/in/richard-steinmetz/)
 
 Distributed under the MIT license. See ``LICENSE.txt`` for more information.
 
-[My GitHub account](https://github.com/RichStone/){:target="_blank"}
-[Twitter](https://twitter.com/stonerichio){:target="_blank"}
+[My GitHub account](https://github.com/RichStone/)
+[Twitter](https://twitter.com/stonerichio)
+
+## How I kickstarted this project
+I have built the foundation in just one day. I called it a Code Sprint later and made a little methodology framework out of it:
+[Vode Sprint on datagoodie.com](https://datagoodie.com/blog/code-sprint/)
+
 
 ## Future Features and Enhancements Ideas
 
@@ -180,7 +185,7 @@ Distributed under the MIT license. See ``LICENSE.txt`` for more information.
 - set message, if no gitignore technology available
 - Set your own default README.md
 
-### future refactorings
+### future refactorings Ideas
 - take out texts in a map file
 - have bash commands in own class
 - add offline support for README, LICENSE.txt and gitignore
