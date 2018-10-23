@@ -1,5 +1,5 @@
 # Product Name
-> la maREPOsa automates creation of your remote GitHub & local git repositories, gitignore and README.md in one single line of code.
+> la maREPOsa automates the creation of your remote GitHub & local git repositories, .gitignore and README.md files in just one single line of code.
 
 [![PyPI version](https://badge.fury.io/py/mareposa.svg)](https://badge.fury.io/py/mareposa)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
